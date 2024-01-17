@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>forEach 練習</title>
+</head>
+<body>
+  <h2>新增資料</h2>
+  <input type="text" placeholder="個案名稱" class="buildName">
+  <input type="text" placeholder="資產類別" class="buildCategory">
+  <input type="text" placeholder="資產種類" class="buildType">
+  <input type="text" placeholder="所屬主管機關" value="臺北市政府" class="buildAdministrative">
+  <input type="submit" value="儲存" class="btn">
+  <h2>資料顯示</h2>
+  <div class="filter">
+    <input type="button" value="所有資料">
+    <input type="button" value="宅第">
+    <input type="button" value="祠堂">
+  </div>
+  <ul class="list">
+  </ul>
+</body>
+<script src="./test.js"></script>
+</html>
+
+
+<!-- <li>個案名稱：${個案名稱}，資產類別：${資產類別}，資產種類：${資產種類}，所屬主管機關：${所屬主管機關}</li> -->
