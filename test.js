@@ -24,58 +24,66 @@ let data = [{
   name: "迪化街一段372號店屋",
   category: "歷史建築",
   type: "宅第",
-  Administrative: "臺北市政府"
-  }]
+  Administrative: "臺北市政府" 
+}]
 
-const list = document.querySelector(".list");
+const list = document.querySelector(".list")
+
 function init(){
   let str = ""
   data.forEach(function(item){
-    let content = `<li> 個案名稱：${item.name}，資產類別：${item.category}，資產種類：${item.type}，所屬主管機關：${item.Administrative}</li>`
+    let content = `<li>個案名稱：${item.name}。資產類別：${item.category}。資產種類：${item.type}。所屬主管機關：${item.Administrative}。</li>`
     str += content
+    list.innerHTML = str
   })
-  list.innerHTML = str
 }
 init()
 
-const typeFilter = document.querySelector(".filter")
-typeFilter.addEventListener("click",function(e){
-  if(e.target.value === undefined){
-    return;
-  }
 
-  let str = ""
+const filter = document.querySelector(".filter")
+
+
+filter.addEventListener("click", function(e){
+  if (e.target.value===undefined){
+    return
+  }
+  let str = "" 
   data.forEach(function(item){
-    if(e.target.value == "所有資料"){
-    str+=`<li> 個案名稱：${item.name}，資產類別：${item.category}，資產種類：${item.type}，所屬主管機關：${item.Administrative}</li>`
+    if (e.target.value==="所有資料"){
+      str += `<li>個案名稱：${item.name}。資產類別：${item.category}。資產種類：${item.type}。所屬主管機關：${item.Administrative}。</li>`
     }
-    if(e.target.value == item.type){
-    str+=`<li> 個案名稱：${item.name}，資產類別：${item.category}，資產種類：${item.type}，所屬主管機關：${item.Administrative}</li>`
+    if (e.target.value===item.type){
+      str += `<li>個案名稱：${item.name}。資產類別：${item.category}。資產種類：${item.type}。所屬主管機關：${item.Administrative}。</li>`
     }
   })
   list.innerHTML = str
 })
 
-const buildName = document.querySelector('.buildName')
-const buildCategory = document.querySelector('.buildCategory')
-const buildType = document.querySelector('.buildType')
-const buildAdministrative = document.querySelector('.buildAdministrative')
-const btn = document.querySelector('.btn')
+const buildName = document.querySelector(".buildName") 
+const buildCategory = document.querySelector(".buildCategory") 
+const buildType = document.querySelector(".buildType")
+const buildAdministrative = document.querySelector(".buildAdministrative")
+const btn = document.querySelector(".btn") 
 
-
-btn.addEventListener("click",function(e){
+btn.addEventListener("click", function(e){
   let obj = {}
   obj.name = buildName.value
-  obj.category = buildCategory.value 
+  obj.category = buildCategory.value
   obj.type = buildType.value
-  obj.Administrative = buildAdministrative.value
+  obj.Administrative = buildAdministrative.valuea
   data.push(obj)
-  console.log(obj)
-  console.log(data)
+  buildName.value = ""
+  buildCategory.value = ""
+  buildType.value = ""
+  buildAdministrative.value = ""
   init()
-  obj.buildName = ""
-  obj.buildCategory = "" 
-  obj.buildType = ""
-  obj.buildAdministrative = ""
-
 })
+
+
+
+
+
+// 將 data 裡面的資料換成自己想要顯示的格式
+// 按鈕篩選（所有、宅第、祠堂）
+// 輸入資料
+// 將資料新增到所有資訊
